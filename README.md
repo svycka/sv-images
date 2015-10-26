@@ -15,6 +15,8 @@ Via Composer
 $ composer require svycka/sv-images
 ```
 
+## Basic Usage
+
 - Register `SvImages` as module in `config/application.config.php`
 - Create filesystem factory, exmaple:
 ```php
@@ -40,10 +42,7 @@ class ImageCacheStorageFactory implements FactoryInterface
 }
 ```
 - Copy the file located in `vendor/svycka/sv-images/config/images.global.php.dist` to `config/autoload/images.global.php` and change the values as you wish
-
-## Basic Usage
-
-Go to http://example.com/image/crop,x15,y15,w300,h300/fit,w200,h150,top-left/f_key/your-image.jpg
+- Test it by going to http://example.com/image/crop,x15,y15,w300,h300/fit,w200,h150,top-left/f_key/your-image.jpg
 
 ## Change log
 
