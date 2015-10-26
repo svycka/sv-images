@@ -1,6 +1,6 @@
 {
     "name": "svycka/sv-images",
-    "description": ":package_description",
+    "description": "Image manipulation library written in PHP, similar to cloud image processing services like Imgix and Cloudinary. This module simplifies image manipulation for Zend Framework 2",
     "keywords": [
         "image",
         "gd",
