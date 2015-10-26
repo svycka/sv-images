@@ -1,0 +1,57 @@
+{
+    "name": "svycka/sv-images",
+    "description": ":package_description",
+    "keywords": [
+        "image",
+        "gd",
+        "imagemagick",
+        "imagick",
+        "sv-images",
+        "transformation",
+        "editing",
+        "zendframework",
+        "zf2",
+        "module"
+    ],
+    "homepage": "https://github.com/svycka/sv-images",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vytautas Stankus",
+            "email": "svycka@gmail.com",
+            "homepage": "https://github.com/svycka"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "zendframework/zend-mvc": "~2.5",
+        "zendframework/zend-modulemanager": "~2.5",
+        "zendframework/zend-servicemanager": "~2.5",
+        "zendframework/zend-http": "~2.5",
+        "zendframework/zend-stdlib": "~2.5",
+        "intervention/image": "~2.3"
+    },
+    "require-dev": {
+        "ext-gd": ">=2.0",
+        "phpunit/phpunit": "4.*",
+        "league/flysystem": "^1.0"
+    },
+    "suggest": {
+        "league/flysystem": "To use this library to load image"
+    },
+    "autoload": {
+        "psr-4": {
+            "SvImages\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SvImages\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

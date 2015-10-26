@@ -1,0 +1,53 @@
+<?php
+return [
+    'service_manager' => [
+        'factories' => [
+            //'images_filesystem' => \Application\Factory\ImageFilesystemFactory::class,
+            //'images_cache_storage' => \Application\Factory\ImageCacheStorageFactory::class,
+        ],
+    ],
+    'sv_images'       => [
+        // filesystem where images are stored, should be instance of SvImages\Filesystem\Filesystem
+        'source' => 'images_filesystem',
+
+        // cache where generated images will be kept, should implement SvImages\Cache\StorageInterface
+        'cache' => 'images_cache_storage',
+
+        // Set driver used for image transformation
+        'driver' => 'imagick',
+
+        // To enable or disable caching
+        'cache_enabled' => false,
+
+        // TransformersManager config, here you can add your own transformers
+        //'transformers'  => [],
+    ],
+
+    'router' => [
+        'routes' => [
+
+            // here you can set routes for images
+            /*'image-route' => [
+                'type'    => \SvImages\Router\ImageRoute::class,
+                'options' => [
+                    'container'    => 'image',
+                    'transformers' => [
+                        [
+                            'name'     => 'crop',
+                            'type'     => \SvImages\Transformer\Crop::class,
+                            'defaults' => [],
+                        ],
+                        [
+                            'name'     => 'fit',
+                            'type'     => \SvImages\Transformer\Fit::class,
+                            'defaults' => [
+                                'width'    => 200,
+                                'position' => 'top'
+                            ],
+                        ],
+                    ],
+                ],
+            ],*/
+        ],
+    ],
+];
