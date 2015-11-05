@@ -64,4 +64,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-packagist]: https://packagist.org/packages/svycka/sv-images
 [link-downloads]: https://packagist.org/packages/svycka/sv-images
 [link-author]: https://github.com/svycka
-[link-contributors]: ../../contributors
+[link-contributors]: https://github.com/svycka/sv-images/graphs/contributors
