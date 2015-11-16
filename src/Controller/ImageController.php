@@ -46,7 +46,7 @@ class ImageController extends AbstractActionController
         $this->options = $options;
     }
 
-    public function ImageAction()
+    public function imageAction()
     {
         $routeMatch = $this->getEvent()->getRouteMatch();
 
@@ -122,14 +122,14 @@ class ImageController extends AbstractActionController
      */
     protected function guessMimeType($filename)
     {
-        $mimeTypes = array(
+        $mimeTypes = [
             'jpeg' => 'image/jpeg',
             'jpg'  => 'image/jpeg',
             'gif'  => 'image/gif',
             'png'  => 'image/png',
             'wbmp' => 'image/vnd.wap.wbmp',
             'xbm'  => 'image/xbm',
-        );
+        ];
 
         $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
         if (!isset($mimeTypes[$extension])) {

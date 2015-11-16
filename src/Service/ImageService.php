@@ -29,8 +29,7 @@ class ImageService
     public function __construct(
         Filesystem $fileSystem,
         TransformersManager $transformersManager
-    )
-    {
+    ) {
         $this->filesystem          = $fileSystem;
         $this->transformersManager = $transformersManager;
     }

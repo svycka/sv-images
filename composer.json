@@ -34,6 +34,7 @@
     "require-dev": {
         "ext-gd": ">=2.0",
         "phpunit/phpunit": "4.*",
+        "squizlabs/php_codesniffer": "^2.0@dev",
         "league/flysystem": "^1.0"
     },
     "suggest": {
@@ -46,7 +47,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "SvImages\\Test\\": "tests"
+            "SvImagesTest\\": "tests"
         }
     },
     "extra": {

@@ -125,5 +125,4 @@ class ModuleOptions extends AbstractOptions
     {
         $this->transformers = $transformers;
     }
-
 }
