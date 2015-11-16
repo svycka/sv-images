@@ -114,5 +114,4 @@ class Result
     {
         $this->routeOptions = $routeOptions;
     }
-
 }

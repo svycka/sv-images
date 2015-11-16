@@ -40,7 +40,11 @@ class UriParser
     public function parseUri($path)
     {
         $container = $this->options['container'];
-        if (!preg_match('/^\/' . preg_quote($container) . '(?:\/(?<transformers>[a-zA-Z0-9_\-,\/]+))\/f_key(?<file_path>\/.+)$/', $path, $matches)) {
+        if (!preg_match(
+            '/^\/' . preg_quote($container) . '(?:\/(?<transformers>[a-zA-Z0-9_\-,\/]+))\/f_key(?<file_path>\/.+)$/',
+            $path,
+            $matches
+        )) {
             return null;
         }
 
@@ -68,15 +72,21 @@ class UriParser
         $transformers      = [];
 
         foreach ($transformers_list as $transformer) {
-            if (!preg_match('/^(?<name>[a-zA-Z0-9_\-]+)(?:,(?<options>[a-zA-Z0-9_\-,]+))?$/', $transformer, $matches)) {
+            if (!preg_match(
+                '/^(?<name>[a-zA-Z0-9_\-]+)(?:,(?<options>[a-zA-Z0-9_\-,]+))?$/',
+                $transformer,
+                $matches
+            )) {
                 throw new UnexpectedValueException("Can't parse transformer options");
             }
 
             $index = array_search($matches['name'], array_column($this->options['transformers'], 'name'));
             if (false === $index) {
-                throw new TransformerNotFoundException(
-                    sprintf("Transformer '%s' does not exist in '%s' container.", $matches['name'], $this->options['container'])
-                );
+                throw new TransformerNotFoundException(sprintf(
+                    "Transformer '%s' does not exist in '%s' container.",
+                    $matches['name'],
+                    $this->options['container']
+                ));
             }
 
             $item = $this->options['transformers'][$index];

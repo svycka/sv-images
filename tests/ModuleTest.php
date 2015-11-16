@@ -1,8 +1,8 @@
 <?php
 
-namespace Svycka\SettingsTest;
+namespace SvImagesTest;
 
-use Svycka\Settings\Module;
+use SvImages\Module;
 
 class ModuleTest extends \PHPUnit_Framework_TestCase
 {

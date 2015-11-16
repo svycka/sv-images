@@ -77,9 +77,9 @@ class Crop extends AbstractTransformer
                 $parsed_options['width'] = $match['value'];
             } elseif (preg_match('/^h(?<value>[1-9]\d*)$/', $option, $match)) {
                 $parsed_options['height'] = $match['value'];
-            }  elseif (preg_match('/^x(?<value>[1-9]\d*)$/', $option, $match)) {
+            } elseif (preg_match('/^x(?<value>[1-9]\d*)$/', $option, $match)) {
                 $parsed_options['x'] = $match['value'];
-            }  elseif (preg_match('/^y(?<value>[1-9]\d*)$/', $option, $match)) {
+            } elseif (preg_match('/^y(?<value>[1-9]\d*)$/', $option, $match)) {
                 $parsed_options['y'] = $match['value'];
             }
         }
