@@ -2,7 +2,6 @@
 
 namespace SvImages\Router;
 
-use SebastianBergmann\Environment\Runtime;
 use SvImages\Exception\RuntimeException;
 use SvImages\Exception\TransformerNotFoundException;
 use SvImages\Exception\UnexpectedValueException;
