@@ -35,6 +35,7 @@
         "ext-gd": ">=2.0",
         "phpunit/phpunit": "4.*",
         "squizlabs/php_codesniffer": "^2.0@dev",
+        "scrutinizer/ocular": "~1.1",
         "league/flysystem": "^1.0"
     },
     "suggest": {
