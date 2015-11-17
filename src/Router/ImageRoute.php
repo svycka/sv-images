@@ -2,6 +2,8 @@
 
 namespace SvImages\Router;
 
+use SebastianBergmann\Environment\Runtime;
+use SvImages\Exception\RuntimeException;
 use SvImages\Exception\TransformerNotFoundException;
 use SvImages\Exception\UnexpectedValueException;
 use SvImages\Parser\Result;
@@ -84,8 +86,29 @@ class ImageRoute implements RouteInterface
      */
     public function assemble(array $params = [], array $options = [])
     {
-        // TODO: Implement assemble() method.
-        throw new \BadMethodCallException('Unsupported!');
+        if (!array_key_exists('key', $params) || !is_string($params['key'])) {
+            throw new UnexpectedValueException('Route params requires "key" parameter');
+        }
+        if (!array_key_exists('transformers', $params) || !is_string($params['transformers'])) {
+            throw new UnexpectedValueException('Route params requires "transformers" parameter');
+        }
+
+        $path = sprintf(
+            '/%s/%s/f_key/%s',
+            $this->options['container'],
+            trim($params['transformers'], '/'),
+            ltrim($params['key'], '/')
+        );
+        $parser = new UriParser($this->options);
+        $result = $parser->parseUri($path);
+
+        if (!$result instanceof Result) {
+            throw new RuntimeException(sprintf(
+                'Generated URI "%s" is invalid. Please verify that all parameters are correct.',
+                $path
+            ));
+        }
+        return $path;
     }
 
     /**
