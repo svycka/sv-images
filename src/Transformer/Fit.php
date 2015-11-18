@@ -11,7 +11,7 @@ use SvImages\Exception\InvalidArgumentException;
  */
 class Fit extends AbstractTransformer
 {
-    const POSITIONS = [
+    protected $positions = [
         'top-left',
         'top',
         'top-right',
@@ -93,7 +93,7 @@ class Fit extends AbstractTransformer
                 $parsed_options['width'] = $match['value'];
             } elseif (preg_match('/^h(?<value>[1-9]\d*)$/', $option, $match)) {
                 $parsed_options['height'] = $match['value'];
-            } elseif (in_array($option, self::POSITIONS)) {
+            } elseif (in_array($option, $this->positions)) {
                 switch ($option) {
                     case 'top-left':
                     case 'tl':
