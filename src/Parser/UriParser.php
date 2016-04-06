@@ -41,7 +41,7 @@ class UriParser
     {
         $container = $this->options['container'];
         if (!preg_match(
-            '/^\/' . preg_quote($container, '/') . '(?:\/(?<transformers>[a-zA-Z0-9_\-,\/]+))\/f_key(?<file_path>\/.+)$/',
+            '/^\/'.preg_quote($container, '/').'(?:\/(?<transformers>[a-zA-Z0-9_\-,\/]+))\/f_key(?<file_path>\/.+)$/',
             $path,
             $matches
         )) {
