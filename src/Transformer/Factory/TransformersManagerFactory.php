@@ -1,10 +1,8 @@
 <?php
 namespace SvImages\Transformer\Factory;
 
-use SvImages\Transformer\FiltersManager;
 use SvImages\Transformer\TransformersManager;
 use SvImages\Options\ModuleOptions;
-use Zend\ServiceManager\Config;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -18,8 +16,7 @@ class TransformersManagerFactory implements FactoryInterface
     {
         /** @var ModuleOptions $options */
         $options = $serviceLocator->get(ModuleOptions::class);
-        $serviceConfig = new Config($options->getTransformers());
 
-        return new TransformersManager($serviceConfig);
+        return new TransformersManager($serviceLocator, $options->getTransformers());
     }
 }
