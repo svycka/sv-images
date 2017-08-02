@@ -1,18 +1,17 @@
 <?php
 namespace SvImages\Options\Factory;
 
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Psr\Container\ContainerInterface;
 use SvImages\Options\ModuleOptions;
 
 /**
  * @author Vytautas Stankus <svycka@gmail.com>
  * @license MIT
  */
-class ModuleOptionsFactory implements FactoryInterface
+class ModuleOptionsFactory
 {
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(ContainerInterface $container)
     {
-        return new ModuleOptions($serviceLocator->get('Config')['sv_images']);
+        return new ModuleOptions($container->get('Config')['sv_images']);
     }
 }

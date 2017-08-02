@@ -1,21 +1,19 @@
 <?php
 namespace SvImages\Transformer\Factory;
 
+use Psr\Container\ContainerInterface;
 use SvImages\Transformer\Crop;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
  * @author Vytautas Stankus <svycka@gmail.com>
  * @license MIT
  */
-class CropTransformerFactory implements FactoryInterface
+class CropTransformerFactory
 {
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(ContainerInterface $container)
     {
-        $sm = $serviceLocator->getServiceLocator();
         /** @var \Intervention\Image\ImageManager $manager */
-        $manager = $sm->get('SvImages\ImageManager\InterventionImageManager');
+        $manager = $container->get(\SvImages\ImageManager\InterventionImageManager::class);
 
         return new Crop($manager);
     }

@@ -2,34 +2,33 @@
 
 namespace SvImages\Controller\Factory;
 
+use Psr\Container\ContainerInterface;
 use SvImages\Controller\ImageController;
 use SvImages\Options\ModuleOptions;
 use SvImages\Service\CacheManager;
 use SvImages\Service\ImageService;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
  * @author Vytautas Stankus <svycka@gmail.com>
  * @license MIT
  */
-class ImageControllerFactory implements FactoryInterface
+class ImageControllerFactory
 {
     /**
      * Create ImageController
      *
-     * @param ServiceLocatorInterface $serviceLocator
+     * @param ContainerInterface $container
+     *
      * @return ImageController
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(ContainerInterface $container)
     {
-        $sm = $serviceLocator->getServiceLocator();
         /** @var ImageService $imageService */
-        $imageService = $sm->get(ImageService::class);
+        $imageService = $container->get(ImageService::class);
         /** @var CacheManager $cacheManager */
-        $cacheManager = $sm->get(CacheManager::class);
+        $cacheManager = $container->get(CacheManager::class);
         /** @var ModuleOptions $options */
-        $options = $sm->get(ModuleOptions::class);
+        $options = $container->get(ModuleOptions::class);
 
         return new ImageController($imageService, $cacheManager, $options);
     }
