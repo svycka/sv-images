@@ -23,7 +23,7 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": "^7.0",
         "zendframework/zend-mvc": "^3.1.0",
         "zendframework/zend-router": "^3.0",
         "zendframework/zend-modulemanager": "^2.8.0",
