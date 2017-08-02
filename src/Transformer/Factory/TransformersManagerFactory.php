@@ -1,22 +1,21 @@
 <?php
 namespace SvImages\Transformer\Factory;
 
+use Psr\Container\ContainerInterface;
 use SvImages\Transformer\TransformersManager;
 use SvImages\Options\ModuleOptions;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
  * @author Vytautas Stankus <svycka@gmail.com>
  * @license MIT
  */
-class TransformersManagerFactory implements FactoryInterface
+class TransformersManagerFactory
 {
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(ContainerInterface $container)
     {
         /** @var ModuleOptions $options */
-        $options = $serviceLocator->get(ModuleOptions::class);
+        $options = $container->get(ModuleOptions::class);
 
-        return new TransformersManager($serviceLocator, $options->getTransformers());
+        return new TransformersManager($container, $options->getTransformers());
     }
 }

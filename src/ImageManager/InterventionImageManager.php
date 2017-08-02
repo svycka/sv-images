@@ -3,27 +3,26 @@
 namespace SvImages\ImageManager;
 
 use Intervention\Image\ImageManager;
+use Psr\Container\ContainerInterface;
 use SvImages\Options\ModuleOptions;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
  * @author Vytautas Stankus <svycka@gmail.com>
  * @license MIT
  */
-class InterventionImageManager implements FactoryInterface
+class InterventionImageManager
 {
     /**
      * Create ImageManager
      *
-     * @param ServiceLocatorInterface $serviceLocator
+     * @param ContainerInterface $container
      *
      * @return ImageManager
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(ContainerInterface $container)
     {
         /** @var ModuleOptions $options */
-        $options = $serviceLocator->get(ModuleOptions::class);
+        $options = $container->get(ModuleOptions::class);
 
         return new ImageManager([
             'driver' => $options->getDriver()

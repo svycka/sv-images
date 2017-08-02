@@ -1,38 +1,18 @@
 <?php
 namespace SvImages\Router\Factory;
 
+use Interop\Container\ContainerInterface;
 use SvImages\Router\ImageRoute;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\MutableCreationOptionsInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\ServiceManager\Factory\FactoryInterface;
 
 /**
  * @author Vytautas Stankus <svycka@gmail.com>
  * @license MIT
  */
-class RouteFactory implements FactoryInterface, MutableCreationOptionsInterface
+class RouteFactory implements FactoryInterface
 {
-    /**
-     * Options to use when creating an instance
-     *
-     * @var array
-     */
-    protected $creationOptions = [];
-
-    public function createService(ServiceLocatorInterface $serviceLocator, $cName = null, $rName = null)
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        return new ImageRoute($this->creationOptions);
-    }
-
-    /**
-     * Set creation options
-     *
-     * @param  array $options
-     *
-     * @return void
-     */
-    public function setCreationOptions(array $options)
-    {
-        $this->creationOptions = $options;
+        return new ImageRoute($options);
     }
 }

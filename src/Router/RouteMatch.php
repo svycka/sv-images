@@ -2,7 +2,7 @@
 namespace SvImages\Router;
 
 use SvImages\Parser\Result;
-use Zend\Mvc\Router\Http\RouteMatch as HttpRouteMatch;
+use Zend\Router\Http\RouteMatch as HttpRouteMatch;
 
 /**
  * @author Vytautas Stankus <svycka@gmail.com>

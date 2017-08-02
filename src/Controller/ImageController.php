@@ -51,7 +51,7 @@ class ImageController extends AbstractActionController
         $routeMatch = $this->getEvent()->getRouteMatch();
 
         if (!$routeMatch instanceof RouteMatch) {
-            $this->notFoundAction(); // todo
+            return $this->notFoundAction(); // todo
         }
 
         $result = $routeMatch->getParserResult();
@@ -67,7 +67,7 @@ class ImageController extends AbstractActionController
         } catch (SvImagesException $exception) {
             // TODO: maybe implement some kind of failure handling strategy?
             // error image or 1px image would be better?
-            $this->notFoundAction();
+            return $this->notFoundAction();
         }
 
         if ($this->options->isCacheEnabled() && $contents) {

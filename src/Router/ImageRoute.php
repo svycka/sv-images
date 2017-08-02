@@ -7,10 +7,10 @@ use SvImages\Exception\TransformerNotFoundException;
 use SvImages\Exception\UnexpectedValueException;
 use SvImages\Parser\Result;
 use SvImages\Parser\UriParser;
-use Zend\Mvc\Router\Http\RouteInterface;
+use Zend\Router\Http\RouteInterface;
 use Zend\Stdlib\RequestInterface as Request;
 use Zend\Stdlib\ArrayUtils;
-use Zend\Mvc\Router\Exception\InvalidArgumentException;
+use Zend\Router\Exception\InvalidArgumentException;
 
 /**
  * @author Vytautas Stankus <svycka@gmail.com>

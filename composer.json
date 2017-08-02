@@ -23,19 +23,20 @@
         }
     ],
     "require": {
-        "php": ">=5.5",
-        "zendframework/zend-mvc": "~2.5",
-        "zendframework/zend-modulemanager": "~2.5",
-        "zendframework/zend-servicemanager": "^2.7.5",
-        "zendframework/zend-http": "~2.5",
-        "zendframework/zend-stdlib": "~2.5",
-        "intervention/image": "~2.3"
+        "php": "^7.0",
+        "zendframework/zend-mvc": "^3.1.0",
+        "zendframework/zend-router": "^3.0",
+        "zendframework/zend-modulemanager": "^2.8.0",
+        "zendframework/zend-servicemanager": "^3.3.0",
+        "zendframework/zend-http": "^2.6.0",
+        "zendframework/zend-stdlib": "^3.1.0",
+        "intervention/image": "^2.4.0"
     },
     "require-dev": {
         "ext-gd": "*",
         "phpunit/phpunit": "4.*",
         "squizlabs/php_codesniffer": "^2.0",
-        "scrutinizer/ocular": "~1.1",
+        "scrutinizer/ocular": "^1.3.2",
         "league/flysystem": "^1.0"
     },
     "suggest": {

@@ -2,38 +2,36 @@
 
 namespace SvImages\Service\Factory;
 
-use SvImages\Cache\FlySystemStorage;
+use Psr\Container\ContainerInterface;
 use SvImages\Cache\StorageInterface;
 use SvImages\Exception\InvalidArgumentException;
 use SvImages\Options\ModuleOptions;
 use SvImages\Service\CacheManager;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
  * @author Vytautas Stankus <svycka@gmail.com>
  * @license MIT
  */
-class CacheManagerFactory implements FactoryInterface
+class CacheManagerFactory
 {
     /**
      * Create service
      *
-     * @param ServiceLocatorInterface $serviceLocator
+     * @param ContainerInterface $container
      *
      * @return CacheManager
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(ContainerInterface $container)
     {
         /** @var ModuleOptions $options */
-        $options = $serviceLocator->get(ModuleOptions::class);
+        $options = $container->get(ModuleOptions::class);
 
-        if (!$serviceLocator->has($options->getCache())) {
+        if (!$container->has($options->getCache())) {
             throw new InvalidArgumentException('Images cache storage is not set.');
         }
 
         /** @var StorageInterface $storage */
-        $storage = $serviceLocator->get($options->getCache());
+        $storage = $container->get($options->getCache());
 
         return new CacheManager($storage);
     }
